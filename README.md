@@ -1,4 +1,4 @@
-<h1>ỨNG DỤNG QUẢN LÝ DANH SÁCH SINH VIÊN (trên mobile)</h1>
+<h1>ỨNG DỤNG QUẢN LÝ DANH SÁCH SINH VIÊN </br>(trên mobile)</h1>
 <p><i>(Ứng dụng này là một bài tập tuần được yêu cầu làm ở nhà)</i></p></br>
 <h2>1. TỔNG QUAN</h2>
 <li><b>Ngôn ngữ:</b> Kotlin</li>
