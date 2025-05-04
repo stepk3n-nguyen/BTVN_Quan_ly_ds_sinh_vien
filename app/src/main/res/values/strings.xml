@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Quan_ly_ds_sinh_vien</string>
+    <string name="add">Add</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="mssv">MSSV</string>
+    <string name="hoTen">Họ tên</string>
+</resources>
