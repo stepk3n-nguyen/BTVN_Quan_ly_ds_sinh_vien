@@ -2,6 +2,7 @@ package com.example.quan_ly_ds_sinh_vien
 
 import android.os.Bundle
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -31,35 +32,76 @@ class MainActivity : AppCompatActivity() {
         gridView.adapter = adapter
 
         btnAdd.setOnClickListener {
-            val name = editName.text.toString()
-            val mssv = editMSSV.text.toString()
-            if (name.isNotBlank() && mssv.isNotBlank()) {
-                studentList.add("$name - $mssv")
-                adapter.notifyDataSetChanged()
-                clearInput()
+            val dialogView = layoutInflater.inflate(R.layout.layout_dialog, null)
+            val editEmail = dialogView.findViewById<EditText>(R.id.edit_email)
+            val editPassword = dialogView.findViewById<EditText>(R.id.edit_password)
+
+            val dialog = AlertDialog.Builder(this)
+                .setView(dialogView)
+                .create()
+
+            dialogView.findViewById<Button>(R.id.button_ok).setOnClickListener {
+                val name = editEmail.text.toString()
+                val mssv = editPassword.text.toString()
+                if (name.isNotBlank() && mssv.isNotBlank()) {
+                    studentList.add("$name - $mssv")
+                    adapter.notifyDataSetChanged()
+                }
+                dialog.dismiss()
             }
+            dialogView.findViewById<Button>(R.id.button_cancel).setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
+
         }
 
         btnUpdate.setOnClickListener {
             if (selectedPosition != -1) {
-                val name = editName.text.toString()
-                val mssv = editMSSV.text.toString()
-                if (name.isNotBlank() && mssv.isNotBlank()) {
-                    studentList[selectedPosition] = "$name - $mssv"
-                    adapter.notifyDataSetChanged()
-                    clearInput()
-                    selectedPosition = -1
+                val dialogView = layoutInflater.inflate(R.layout.layout_dialog, null)
+                val editEmail = dialogView.findViewById<EditText>(R.id.edit_email)
+                val editPassword = dialogView.findViewById<EditText>(R.id.edit_password)
+
+                val dialog = AlertDialog.Builder(this)
+                    .setView(dialogView)
+                    .create()
+
+                dialogView.findViewById<Button>(R.id.button_ok).setOnClickListener {
+                    val name = editEmail.text.toString()
+                    val mssv = editPassword.text.toString()
+                    if (name.isNotBlank() && mssv.isNotBlank()) {
+                        studentList[selectedPosition] = "$name - $mssv"
+                        adapter.notifyDataSetChanged()
+                        clearInput()
+                        selectedPosition = -1
+                    }
+                    dialog.dismiss()
                 }
+                dialogView.findViewById<Button>(R.id.button_cancel).setOnClickListener {
+                    dialog.dismiss()
+                }
+                dialog.show()
             }
         }
 
         btnDelete.setOnClickListener {
-            if (selectedPosition != -1) {
-                studentList.removeAt(selectedPosition)
-                adapter.notifyDataSetChanged()
-                clearInput()
-                selectedPosition = -1
+            val dialogView = layoutInflater.inflate(R.layout.layout_confirm, null)
+            val dialog = AlertDialog.Builder(this)
+                .setView(dialogView)
+                .create()
+
+            dialogView.findViewById<Button>(R.id.button_ok).setOnClickListener {
+                if (selectedPosition != -1) {
+                    studentList.removeAt(selectedPosition)
+                    adapter.notifyDataSetChanged()
+                    selectedPosition = -1
+                }
+                dialog.dismiss()
             }
+            dialogView.findViewById<Button>(R.id.button_cancel).setOnClickListener {
+                dialog.dismiss()
+            }
+            dialog.show()
         }
 
         gridView.setOnItemClickListener { _, _, position, _ ->
