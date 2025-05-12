@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         editName = findViewById(R.id.editName)
         editMSSV = findViewById(R.id.editMSSV)
         btnAdd = findViewById(R.id.btnAdd)
@@ -47,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                     studentList.add("$name - $mssv")
                     adapter.notifyDataSetChanged()
                 }
+                Toast.makeText(this, "Đã thêm thành công sinh viên: $name - $mssv", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             }
             dialogView.findViewById<Button>(R.id.button_cancel).setOnClickListener {
@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
                         clearInput()
                         selectedPosition = -1
                     }
+                    Toast.makeText(this, "Đã update thành công sinh viên: $name - $mssv", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
                 dialogView.findViewById<Button>(R.id.button_cancel).setOnClickListener {
@@ -96,6 +97,7 @@ class MainActivity : AppCompatActivity() {
                     adapter.notifyDataSetChanged()
                     selectedPosition = -1
                 }
+                Toast.makeText(this, "Đã xóa thành công sinh viên", Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
             }
             dialogView.findViewById<Button>(R.id.button_cancel).setOnClickListener {
