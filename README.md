@@ -8,7 +8,7 @@
 👉 Xóa thông tin (delete) </br>
 <li><b>Input:</b> Họ tên sinh viên, mã số sinh viên (MSSV)</li> 
 <li><b>Output:</b> Danh sách thông tin sinh viên sau khi đã thêm, cập nhật, xóa</li></br>
-<h2>Demo output</h2>
+<h2>Demo output (cũ)</h2>
 <p>👉 Chức năng thêm sinh viên (Add)</p> 
 <img src="https://github.com/user-attachments/assets/0aeb110d-c18e-48f1-8faf-3805fa6d74c4" width="250" alt="Origin">
 <img src="https://github.com/user-attachments/assets/c50c6ffb-25df-42f6-a13c-5efaba9ff50f" width="250" alt="Add">
